@@ -9,7 +9,10 @@ int main(void) {
 	printf("Hello World!\n");
 	char fileAuthor[] = "minemobs";
 	println(fileAuthor);
-	printf("%s %s\n", "Is Admin ?", intToBoolean(-32767));
+	println("What's your name ? (Length limit = 20)");
+	char name[20];
+	scanf("%20s", name);
+	printf("Your name is %s\n", name);
 	return 0;
 }
 
@@ -18,5 +21,5 @@ void println(char* text) {
 }
 
 char* intToBoolean(int i) {
-	return i == 1 ? "true" : i != -32767 ? "false" : "Maybe";
+	return i == 1 ? "true" : "false";
 }
