@@ -2,8 +2,14 @@
 #include <string.h>
 #include <stdlib.h>
 
+typedef enum {
+	true,
+	false
+} BOOLEAN;
+
 void println(char* text);
-char* intToBoolean(int i);
+BOOLEAN intToBoolean(int i);
+char* booleanToString(BOOLEAN b);
 
 int main(void) {
 	printf("Hello World!\n");
@@ -13,6 +19,7 @@ int main(void) {
 	char name[20];
 	scanf("%20s", name);
 	printf("Your name is %s\n", name);
+	println(booleanToString(intToBoolean(1)));
 	return 0;
 }
 
@@ -20,6 +27,13 @@ void println(char* text) {
 	printf("%s\n", text);
 }
 
-char* intToBoolean(int i) {
-	return i == 1 ? "true" : "false";
+BOOLEAN intToBoolean(int i) {
+	return i == 1 ? true : false;
+}
+
+char* booleanToString(BOOLEAN b) {
+	switch(b) {
+		case true: return "true";
+		default: return "false";
+	}
 }
